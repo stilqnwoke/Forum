@@ -4,6 +4,7 @@ import { LoginComponent } from "./login/login.component";
 import { NgModule } from "@angular/core";
 import { Routes, RouterModule } from "@angular/router";
 
+import { ListpostsComponent } from "./listposts/listposts.component";
 const routes: Routes = [
   {
     path: "",
@@ -15,7 +16,7 @@ const routes: Routes = [
   },
   {
     path: "posts",
-    component: PostsComponent,
+    component: ListpostsComponent,
   },
   {
     path: "",

@@ -1,0 +1,34 @@
+<div class="container">
+  <table class="table table-striped table-dark">
+    <thead>
+      <tr>
+        <th scope="col"></th>
+        <th scope="col">Title</th>
+        <th scope="col">User</th>
+        <th scope="col">Posted on</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let post of posts">
+        <td>{{ post.title }}</td>
+        <!-- date and uppercase are pipes used to modify the date -->
+        <td>{{ post.madeOn | date | uppercase }}</td>
+        <td>{{ todo.username }}</td>
+        <td>
+          <button (click)="updatePost(post.id)" class="btn btn-success">
+            Update
+          </button>
+        </td>
+        <td>
+          <button (click)="deletePost(post.id)" class="btn btn-warning">
+            Delete
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="row">
+    <button (click)="addPost()" class="btn btn-success">Add</button>
+  </div>
+</div>
