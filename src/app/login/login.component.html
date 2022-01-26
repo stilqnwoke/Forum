@@ -14,12 +14,14 @@
         <form>
           <!-- Email input -->
           <div class="form-outline mb-4">
-            <label class="form-label" for="form3Example3">Email address</label>
+            <label class="form-label" for="form3Example3">Username</label>
             <input
-              type="email"
+              type="username"
+              name="username"
+              [(ngModel)]="username"
               id="form3Example3"
               class="form-control form-control-lg"
-              placeholder="Enter a valid email address"
+              placeholder="Enter a valid username"
             />
           </div>
 
@@ -28,6 +30,8 @@
             <label class="form-label" for="form3Example4">Password cd</label>
             <input
               type="password"
+              name="password"
+              [(ngModel)]="password"
               id="form3Example4"
               class="form-control form-control-lg"
               placeholder="Enter password"
@@ -52,8 +56,8 @@
 
           <div class="text-center text-lg-start mt-4 pt-2">
             <button
-              type="button"
-              class="btn btn-primary btn-lg"
+              (click)="handleJWTAuthLogin()"
+              class="btn btn-success"
               style="padding-left: 2.5rem; padding-right: 2.5rem"
             >
               Login

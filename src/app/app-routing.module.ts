@@ -3,8 +3,10 @@ import { MainComponent } from "./main/main.component";
 import { LoginComponent } from "./login/login.component";
 import { NgModule } from "@angular/core";
 import { Routes, RouterModule } from "@angular/router";
+import { RouteguardService } from "./service/routeguard.service";
 
 import { ListpostsComponent } from "./listposts/listposts.component";
+import { ErrorComponent } from "./error/error.component";
 const routes: Routes = [
   {
     path: "",
@@ -17,11 +19,9 @@ const routes: Routes = [
   {
     path: "posts",
     component: ListpostsComponent,
+    canActivate: [RouteguardService],
   },
-  {
-    path: "",
-    component: LoginComponent,
-  },
+  { path: "**", component: ErrorComponent },
 ];
 
 @NgModule({

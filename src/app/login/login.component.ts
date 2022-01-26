@@ -1,3 +1,4 @@
+import { BasicAuthService } from "./../service/basic-auth.service";
 import { Component, OnInit } from "@angular/core";
 import { Router } from "@angular/router";
 
@@ -7,9 +8,33 @@ import { Router } from "@angular/router";
   styleUrls: ["./login.component.css"],
 })
 export class LoginComponent implements OnInit {
-  constructor(private router: Router) {}
+  username = "stkwe";
+  password = "";
+  errorMessage = "Invalid Credentials";
+  invalidLogin = false;
 
-  ngOnInit() {
-    // this.router.navigate(["login"]);
+  //Router
+  //Dependency Injection
+  constructor(
+    private router: Router,
+    private basicAuthService: BasicAuthService
+  ) {}
+
+  ngOnInit() {}
+
+  handleJWTAuthLogin() {
+    this.basicAuthService
+      .executeJWTAuthenticationService(this.username, this.password)
+      .subscribe(
+        (data) => {
+          console.log(data);
+          this.router.navigate(["welcome", this.username]);
+          this.invalidLogin = false;
+        },
+        (error) => {
+          console.log(error);
+          this.invalidLogin = true;
+        }
+      );
   }
 }

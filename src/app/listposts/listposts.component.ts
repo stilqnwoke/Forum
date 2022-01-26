@@ -49,7 +49,7 @@ export class ListpostsComponent implements OnInit {
     this.router.navigate(["posts", id]);
   }
 
-  addTodo() {
+  addPost() {
     this.router.navigate(["posts", -1]);
   }
 }
