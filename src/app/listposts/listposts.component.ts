@@ -35,7 +35,7 @@ export class ListpostsComponent implements OnInit {
     });
   }
 
-  deleteTodo(id) {
+  deletePost(id) {
     console.log(`delete post ${id}`);
     this.postService.deletePost("stkwe", id).subscribe((response) => {
       console.log(response);

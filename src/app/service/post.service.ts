@@ -10,22 +10,22 @@ export class PostService {
   constructor(private http: HttpClient) {}
 
   retrieveAllPosts(username) {
-    return this.http.get<Post[]>(`${API_URL}/posts`);
+    return this.http.get<Post[]>(`${API_URL}/users/${username}/posts`);
   }
 
   deletePost(username, id) {
-    return this.http.delete(`${API_URL}/posts/${id}`);
+    return this.http.delete(`${API_URL}/users/${username}/posts/${id}`);
   }
 
   retrievePost(username, id) {
-    return this.http.get<Post>(`${API_URL}/posts/${id}`);
+    return this.http.get<Post>(`${API_URL}/users/${username}/posts/${id}`);
   }
 
   updatePost(username, id, post) {
-    return this.http.put(`${API_URL}/posts/${id}`, post);
+    return this.http.put(`${API_URL}/users/${username}/posts/${id}`, post);
   }
 
   createPost(username, post) {
-    return this.http.post(`${API_URL}/posts`, post);
+    return this.http.post(`${API_URL}/users/${username}/posts`, post);
   }
 }

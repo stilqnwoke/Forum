@@ -28,7 +28,7 @@ export class LoginComponent implements OnInit {
       .subscribe(
         (data) => {
           console.log(data);
-          this.router.navigate(["welcome", this.username]);
+          this.router.navigate(["/", this.username]);
           this.invalidLogin = false;
         },
         (error) => {

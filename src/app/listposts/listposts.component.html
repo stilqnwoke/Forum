@@ -2,7 +2,6 @@
   <table class="table table-striped table-dark">
     <thead>
       <tr>
-        <th scope="col"></th>
         <th scope="col">Title</th>
         <th scope="col">User</th>
         <th scope="col">Posted on</th>
@@ -12,8 +11,8 @@
       <tr *ngFor="let post of posts">
         <td>{{ post.title }}</td>
         <!-- date and uppercase are pipes used to modify the date -->
-        <td>{{ post.madeOn | date | uppercase }}</td>
-        <td>{{ todo.username }}</td>
+        <td>{{ post.madeOn | date }}</td>
+        <td>{{ post.username }}</td>
         <td>
           <button (click)="updatePost(post.id)" class="btn btn-success">
             Update

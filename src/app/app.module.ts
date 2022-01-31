@@ -1,4 +1,4 @@
-import { HttpInterceptorAuthService } from './service/http/http-interceptor-auth.service';
+import { HttpInterceptorAuthService } from "./service/http/http-interceptor-auth.service";
 import { BrowserModule } from "@angular/platform-browser";
 import { NgModule } from "@angular/core";
 import { FormsModule } from "@angular/forms";
@@ -12,8 +12,7 @@ import { FooterComponent } from "./footer/footer.component";
 import { ListpostsComponent } from "./listposts/listposts.component";
 import { PostsComponent } from "./posts/posts.component";
 import { HttpClientModule, HTTP_INTERCEPTORS } from "@angular/common/http";
-import { ErrorComponent } from './error/error.component';
-
+import { ErrorComponent } from "./error/error.component";
 
 @NgModule({
   declarations: [
@@ -26,13 +25,14 @@ import { ErrorComponent } from './error/error.component';
     ListpostsComponent,
     ErrorComponent,
   ],
-  imports: [BrowserModule, AppRoutingModule, FormsModule, HttpClientModule]
+  imports: [BrowserModule, AppRoutingModule, FormsModule, HttpClientModule],
   providers: [
     {
-    provide: HTTP_INTERCEPTORS,
-    useClass: HttpInterceptorAuthService,
-    multi: true,
-  },],
+      provide: HTTP_INTERCEPTORS,
+      useClass: HttpInterceptorAuthService,
+      multi: true,
+    },
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
